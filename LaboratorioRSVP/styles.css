@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+}
+
+form {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    padding: 40px 48px;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form::before {
+    content: '🎉 Event RSVP';
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #4a3f8f;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    padding: 10px 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+label:has(input[type="checkbox"]) {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    text-transform: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #667eea;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    margin-top: 8px;
+    padding: 13px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Confirmation card */
+form > div {
+    background: #f0fdf4;
+    border: 2px solid #86efac;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+form > div::before {
+    content: '✅ RSVP Confirmed!';
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #16a34a;
+    margin-bottom: 4px;
+}
+
+form > div p:first-child {
+    display: none;
+}
+
+form > div p {
+    font-size: 0.95rem;
+    color: #374151;
+    padding: 4px 0;
+    border-bottom: 1px solid #d1fae5;
+}
+
+form > div p:last-child {
+    border-bottom: none;
+}
