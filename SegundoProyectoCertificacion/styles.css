@@ -1,0 +1,105 @@
+/* Resetea margin/padding de todos los elementos y usa border-box
+   para que padding no agrande el tamaño de los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Centra todo en pantalla completa con fondo degradado oscuro */
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* El div raíz de React ocupa todo el ancho y centra su contenido */
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Contenedor principal: apila título, tablero y botón en columna */
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Título grande, blanco, con sombra de color para que brille */
+.title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(167, 139, 250, 0.8);
+}
+
+/* Texto que muestra de quién es el turno */
+.turn {
+    color: #a78bfa;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Cuadrícula 3x3 con gap entre celdas */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Cada celda del tablero */
+.square {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    /* Fondo semitransparente con efecto glass */
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(167, 139, 250, 0.3);
+    border-radius: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    /* Transición suave para hover */
+    transition: background 0.2s, transform 0.1s, border-color 0.2s;
+}
+
+/* Efecto al pasar el mouse: se ilumina y agranda levemente */
+.square:hover {
+    background: rgba(167, 139, 250, 0.2);
+    border-color: #a78bfa;
+    transform: scale(1.05);
+}
+
+/* Efecto al hacer click: se achica un poco */
+.square:active {
+    transform: scale(0.95);
+}
+
+/* Botón de reset */
+.reset {
+    margin-top: 8px;
+    padding: 12px 36px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+/* Hover del reset: baja opacidad */
+.reset:hover {
+    opacity: 0.85;
+    transform: scale(1.04);
+}
