@@ -1,0 +1,265 @@
+/* file: styles.css */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-1: #12111a;
+    --bg-2: #1c1a2b;
+    --surface: #221f33;
+    --border: #35304a;
+    --text: #f1eef7;
+    --text-muted: #a79fc2;
+    --accent: #ff7ab6;
+    --accent-2: #7c6cf0;
+    --success: #4fd6b0;
+    --danger: #ff6161;
+    --shadow: rgba(0, 0, 0, 0.35);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Poppins", system-ui, sans-serif;
+    background: radial-gradient(circle at top left, var(--bg-2), var(--bg-1));
+    color: var(--text);
+    padding: 2rem 1rem;
+}
+
+.app {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.app-header h1 {
+    font-size: 2.4rem;
+    margin: 0 0 0.3rem;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.app-header p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 850px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.study-area,
+.form-area {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.75rem;
+    box-shadow: 0 12px 30px var(--shadow);
+}
+
+.stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1200px;
+}
+
+.flashcard {
+    width: 100%;
+    max-width: 460px;
+    height: 240px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.flashcard-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.flashcard-front {
+    background: linear-gradient(135deg, #2c2745, #362f57);
+    border: 1px solid var(--border);
+}
+
+.flashcard-back {
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    transform: rotateY(180deg);
+    color: #1a1626;
+}
+
+.face-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    font-weight: 600;
+}
+
+.face-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.hint {
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.deck-actions {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.deck h2,
+.form-area h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.deck-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.deck-chip {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.deck-chip:hover {
+    border-color: var(--accent-2);
+    color: var(--text);
+}
+
+.deck-chip.active {
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    color: #1a1626;
+    border-color: transparent;
+    font-weight: 600;
+}
+
+.form-area form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-area label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+.form-area textarea {
+    width: 100%;
+    min-height: 90px;
+    resize: vertical;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.75rem;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form-area textarea:focus {
+    outline: none;
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 3px rgba(124, 108, 240, 0.3);
+}
+
+.form-error {
+    min-height: 1.2em;
+    color: var(--danger);
+    font-size: 0.85rem;
+    margin: 0.25rem 0 0;
+}
+
+.btn {
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 1.2rem;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.15s ease;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    color: #1a1626;
+    margin-top: 1rem;
+}
+
+.btn-danger {
+    background: transparent;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+
+.btn-danger:hover {
+    background: rgba(255, 97, 97, 0.12);
+}
